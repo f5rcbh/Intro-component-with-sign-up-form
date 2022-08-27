@@ -20,24 +20,39 @@ body{
             display: grid;
             grid-template-columns: 500px 500px;
             padding: 2rem;
+            @include break.breakpoint(small){
+                @include layout.flexCenter;
+                flex-direction:column;
+                text-align: center
+            }
             .first-col{
                 @include layout.flexCenter;
                 flex-direction: column;
                 color:#fff;
                 h1{
-
+                    @include break.breakpoint(small){
+                        font-size: 2rem;
+                    }
                     font-size: 3rem;
                     margin: 1.5rem 0;
                     font-weight: 700;
                     line-height: 1;
                 }
                 p{
+                    @include break.breakpoint(small){
+                        width: 80%;
+                        line-height: 2;
+                        margin-bottom: 2rem;
+                    }
                     font-size: 13;
                     font-weight: 400;
                 }
             }
             .second-col{
                 .first-row{
+                    @include break.breakpoint(small){
+                        padding: 2rem;
+                    }
                     background-color: color.$Blue;
                     text-align: center;
                     padding: 1rem;

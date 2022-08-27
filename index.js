@@ -5,38 +5,43 @@ const Email = document.getElementById('email')
 const Password = document.getElementById('password')
 
 form.addEventListener('submit',(e)=>{
-    e.preventDefault()
-    let firstName = FName.value.trim()
-    let lastName = LName.value.trim()
-    let emailValue = Email.value.trim()
-    let passwordValue = Password.value.trim()
-    let patterns =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-
-    if(firstName === ""){
-        errorFunc(FName, 'First Name Cannot Be Empty')
-    }else{
-        successFunc(FName)
-    }
+    if(FName.value == '' || LName.value == '' || Email.value == '' || Password.value == ''){
+        e.preventDefault()
+        let firstName = FName.value.trim()
+        let lastName = LName.value.trim()
+        let emailValue = Email.value.trim()
+        let passwordValue = Password.value.trim()
+        let patterns =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     
-    if(lastName === ""){
-        errorFunc(LName, 'Last Name Cannot Be Empty')
-    }else{
-        successFunc(LName)
-    }
     
-    if(emailValue === ""){
-        errorFunc(Email, 'E-mail Cannot Be Empty')
-    }else if(!emailValue.match(patterns)){
-        errorFunc(Email,'Looks Like This Is Not An Email')
-    }else{
-        successFunc(Email)
+        if(firstName === ""){
+            errorFunc(FName, 'First Name Cannot Be Empty')
+        }else{
+            successFunc(FName)
+        }
+        
+        if(lastName === ""){
+            errorFunc(LName, 'Last Name Cannot Be Empty')
+        }else{
+            successFunc(LName)
+        }
+        
+        if(emailValue === ""){
+            errorFunc(Email, 'E-mail Cannot Be Empty')
+        }else if(!emailValue.match(patterns)){
+            errorFunc(Email,'Looks Like This Is Not An Email')
+        }else{
+            successFunc(Email)
+        }
+        
+        if(passwordValue === ""){
+            errorFunc(Password, 'Password Cannot Be Empty')
+        }else{
+            successFunc(Password)
+        }
     }
-    
-    if(passwordValue === ""){
-        errorFunc(Password, 'Password Cannot Be Empty')
-    }else{
-        successFunc(Password)
+    else{
+        window.location.reload
     }
 
 })
